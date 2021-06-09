@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 8, 2021 6:18:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Dangky" table="dangky" catalog="dangkyhocphan" optimistic-lock="version">
+        <composite-id name="id" class="pojo.DangkyId">
+            <key-property name="mssv" type="string">
+                <column name="MSSV" length="10" />
+            </key-property>
+            <key-property name="maHp" type="string">
+                <column name="maHP" length="10" />
+            </key-property>
+            <key-property name="hocKy" type="string">
+                <column name="hocKy" length="5" />
+            </key-property>
+            <key-property name="namHoc" type="string">
+                <column name="namHoc" length="12" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="hocphan" class="pojo.Hocphan" update="false" insert="false" fetch="select">
+            <column name="maHP" length="10" not-null="true" />
+            <column name="hocKy" length="5" not-null="true" />
+            <column name="namHoc" length="12" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sinhvien" class="pojo.Sinhvien" update="false" insert="false" fetch="select">
+            <column name="MSSV" length="10" not-null="true" />
+        </many-to-one>
+        <property name="lichSuDangKy" type="timestamp">
+            <column name="lichSuDangKy" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

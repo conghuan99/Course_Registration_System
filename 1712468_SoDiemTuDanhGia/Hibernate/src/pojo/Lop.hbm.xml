@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 8, 2021 6:18:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Lop" table="lop" catalog="dangkyhocphan" optimistic-lock="version">
+        <id name="maLop" type="string">
+            <column name="maLop" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="hocphan" class="pojo.Hocphan" fetch="select">
+            <column name="maHP" length="10" />
+            <column name="hocKy" length="5" />
+            <column name="namHoc" length="12" />
+        </many-to-one>
+        <property name="tenLop" type="string">
+            <column name="tenLop" length="40" />
+        </property>
+        <property name="tongSv" type="java.lang.Integer">
+            <column name="tongSV" />
+        </property>
+        <property name="sinhVienNam" type="java.lang.Integer">
+            <column name="sinhVienNam" />
+        </property>
+        <property name="sinhVienNu" type="java.lang.Integer">
+            <column name="sinhVienNu" />
+        </property>
+    </class>
+</hibernate-mapping>

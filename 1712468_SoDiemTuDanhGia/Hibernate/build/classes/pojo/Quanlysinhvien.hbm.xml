@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 8, 2021 6:18:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Quanlysinhvien" table="quanlysinhvien" catalog="dangkyhocphan" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sinhvien" class="pojo.Sinhvien" fetch="select">
+            <column name="userName" length="10" />
+        </many-to-one>
+        <property name="password" type="string">
+            <column name="password" length="20" />
+        </property>
+        <property name="lichSu" type="timestamp">
+            <column name="lichSu" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

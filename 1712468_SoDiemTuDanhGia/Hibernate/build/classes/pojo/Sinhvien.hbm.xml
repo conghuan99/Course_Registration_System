@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 8, 2021 6:18:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Sinhvien" table="sinhvien" catalog="dangkyhocphan" optimistic-lock="version">
+        <id name="mssv" type="string">
+            <column name="MSSV" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="hoTenSv" type="string">
+            <column name="hoTenSV" length="40" not-null="true" />
+        </property>
+        <property name="hoTenCha" type="string">
+            <column name="hoTenCha" length="40" />
+        </property>
+        <property name="hoTenMe" type="string">
+            <column name="hoTenMe" length="40" />
+        </property>
+        <property name="namSinh" type="date">
+            <column name="namSinh" length="10" />
+        </property>
+        <property name="queQuan" type="string">
+            <column name="queQuan" length="50" />
+        </property>
+        <property name="choOhienTai" type="string">
+            <column name="choOHienTai" length="50" />
+        </property>
+        <property name="sdt" type="string">
+            <column name="sdt" length="10" />
+        </property>
+        <set name="dangkies" table="dangky" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MSSV" length="10" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Dangky" />
+        </set>
+        <set name="quanlysinhviens" table="quanlysinhvien" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userName" length="10" />
+            </key>
+            <one-to-many class="pojo.Quanlysinhvien" />
+        </set>
+    </class>
+</hibernate-mapping>

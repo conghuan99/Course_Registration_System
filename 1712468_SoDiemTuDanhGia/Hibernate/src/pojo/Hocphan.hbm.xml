@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 8, 2021 6:18:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Hocphan" table="hocphan" catalog="dangkyhocphan" optimistic-lock="version">
+        <composite-id name="id" class="pojo.HocphanId">
+            <key-property name="maHp" type="string">
+                <column name="maHP" length="10" />
+            </key-property>
+            <key-property name="hocKy" type="string">
+                <column name="hocKy" length="5" />
+            </key-property>
+            <key-property name="namHoc" type="string">
+                <column name="namHoc" length="12" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="hocky" class="pojo.Hocky" update="false" insert="false" fetch="select">
+            <column name="hocKy" length="5" not-null="true" />
+            <column name="namHoc" length="12" not-null="true" />
+        </many-to-one>
+        <many-to-one name="monhoc" class="pojo.Monhoc" fetch="select">
+            <column name="maMH" length="10" />
+        </many-to-one>
+        <property name="giaoVienLt" type="string">
+            <column name="giaoVienLT" length="40" />
+        </property>
+        <property name="ca" type="string">
+            <column name="Ca" length="10" />
+        </property>
+        <property name="thu" type="string">
+            <column name="Thu" length="10" />
+        </property>
+        <property name="phong" type="string">
+            <column name="Phong" length="10" />
+        </property>
+        <property name="soLuongToiDa" type="java.lang.Integer">
+            <column name="soLuongToiDa" />
+        </property>
+        <set name="dangkies" table="dangky" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="maHP" length="10" not-null="true" />
+                <column name="hocKy" length="5" not-null="true" />
+                <column name="namHoc" length="12" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Dangky" />
+        </set>
+        <set name="lops" table="lop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="maHP" length="10" />
+                <column name="hocKy" length="5" />
+                <column name="namHoc" length="12" />
+            </key>
+            <one-to-many class="pojo.Lop" />
+        </set>
+    </class>
+</hibernate-mapping>
