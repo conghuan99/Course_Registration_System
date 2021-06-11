@@ -38,6 +38,7 @@ public class sinhVien_Form extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("sinh viên");
         setLocation(new java.awt.Point(700, 250));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -66,6 +67,11 @@ public class sinhVien_Form extends javax.swing.JFrame {
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/qlcn.png"))); // NOI18N
         jButton6.setText("thông tin cá nhân");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(255, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -145,8 +151,16 @@ public class sinhVien_Form extends javax.swing.JFrame {
     private void jButton_DangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DangXuatActionPerformed
         Login_Form login_form= new Login_Form();
         login_form.setVisible(true);
-        this.dispose();        // TODO add your handling code here:
+        Login_Form.Username= "";
+        Login_Form.Password= "";        
+        this.dispose();          // TODO add your handling code here:
     }//GEN-LAST:event_jButton_DangXuatActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        sv_qlcanhan_Form sv_qlcanhan_Form = new sv_qlcanhan_Form();
+        sv_qlcanhan_Form.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

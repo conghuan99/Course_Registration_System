@@ -5,16 +5,23 @@
  */
 package Form;
 
+import DAO.GiaovuDAO;
+import DAO.SinhvienDAO;
 import java.sql.*;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import pojo.Giaovu;
+import pojo.Sinhvien;
 
 /**
  *
  * @author VOCONGHUAN
  */
 public class Login_Form extends javax.swing.JFrame {
-
+    public static String Username="";
+    public static String Password= "";
     /**
      * Creates new form home
      */
@@ -136,7 +143,6 @@ public class Login_Form extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_ThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ThoatActionPerformed
-    
         this.dispose();
         return;        // TODO add your handling code here:
     }//GEN-LAST:event_jButton_ThoatActionPerformed
@@ -144,18 +150,29 @@ public class Login_Form extends javax.swing.JFrame {
     private void jButton_danhNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_danhNhapActionPerformed
         String username= jTextField_username.getText();
         String password= jPasswordField.getText();
-        if(username.equals("GV")){
-        giaoVu_Form gv_form= new giaoVu_Form();
-        gv_form.setVisible(true);
-        this.dispose();
-        return;
+        List<Sinhvien> listSV= SinhvienDAO.layDanhSachSinhVien();
+        List<Giaovu> listGV= GiaovuDAO.layDanhSachGiaoVu();
+        for(int i=0; i<listSV.size(); i++){
+            if(username.equals(listSV.get(i).getMssv()) && password.equals(listSV.get(i).getPassword())){
+            sinhVien_Form sv_form= new sinhVien_Form();
+            sv_form.setVisible(true);
+            Username= username;
+            Password= password;
+            this.dispose();
+            return;
+            }
         }
-        else if(username.equals("SV")){
-        sinhVien_Form sv_form= new sinhVien_Form();
-        sv_form.setVisible(true);
-        this.dispose();
-        return;
+          for(int i=0; i<listGV.size(); i++){
+            if(username.equals(listGV.get(i).getMaGv()) && password.equals(listGV.get(i).getPassword())){
+            giaoVu_Form sv_form= new giaoVu_Form();
+            sv_form.setVisible(true);
+            Username= username;
+            Password= password;
+            this.dispose();
+            return;
+            }
         }
+          JOptionPane.showMessageDialog(null, "Tên đăng nhập hoặc mật khẩu không chính xác");
     }//GEN-LAST:event_jButton_danhNhapActionPerformed
         
     /**

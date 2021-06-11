@@ -1,5 +1,5 @@
 package pojo;
-// Generated Jun 8, 2021 6:18:02 PM by Hibernate Tools 4.3.1
+// Generated Jun 11, 2021 5:19:12 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,6 +13,7 @@ public class Sinhvien  implements java.io.Serializable {
 
 
      private String mssv;
+     private String password;
      private String hoTenSv;
      private String hoTenCha;
      private String hoTenMe;
@@ -21,7 +22,6 @@ public class Sinhvien  implements java.io.Serializable {
      private String choOhienTai;
      private String sdt;
      private Set dangkies = new HashSet(0);
-     private Set quanlysinhviens = new HashSet(0);
 
     public Sinhvien() {
     }
@@ -31,8 +31,9 @@ public class Sinhvien  implements java.io.Serializable {
         this.mssv = mssv;
         this.hoTenSv = hoTenSv;
     }
-    public Sinhvien(String mssv, String hoTenSv, String hoTenCha, String hoTenMe, Date namSinh, String queQuan, String choOhienTai, String sdt, Set dangkies, Set quanlysinhviens) {
+    public Sinhvien(String mssv, String password, String hoTenSv, String hoTenCha, String hoTenMe, Date namSinh, String queQuan, String choOhienTai, String sdt, Set dangkies) {
        this.mssv = mssv;
+       this.password = password;
        this.hoTenSv = hoTenSv;
        this.hoTenCha = hoTenCha;
        this.hoTenMe = hoTenMe;
@@ -41,7 +42,6 @@ public class Sinhvien  implements java.io.Serializable {
        this.choOhienTai = choOhienTai;
        this.sdt = sdt;
        this.dangkies = dangkies;
-       this.quanlysinhviens = quanlysinhviens;
     }
    
     public String getMssv() {
@@ -50,6 +50,13 @@ public class Sinhvien  implements java.io.Serializable {
     
     public void setMssv(String mssv) {
         this.mssv = mssv;
+    }
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     public String getHoTenSv() {
         return this.hoTenSv;
@@ -106,13 +113,6 @@ public class Sinhvien  implements java.io.Serializable {
     
     public void setDangkies(Set dangkies) {
         this.dangkies = dangkies;
-    }
-    public Set getQuanlysinhviens() {
-        return this.quanlysinhviens;
-    }
-    
-    public void setQuanlysinhviens(Set quanlysinhviens) {
-        this.quanlysinhviens = quanlysinhviens;
     }
 
 

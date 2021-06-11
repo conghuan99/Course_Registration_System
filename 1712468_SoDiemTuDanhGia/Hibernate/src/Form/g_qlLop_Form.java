@@ -37,6 +37,11 @@ public class g_qlLop_Form extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
 
         jButton_DangXuat.setText("Đăng xuất");
+        jButton_DangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_DangXuatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,6 +75,14 @@ public class g_qlLop_Form extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_DangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DangXuatActionPerformed
+Login_Form login_form= new Login_Form();
+        login_form.setVisible(true);
+        Login_Form.Username= "";
+        Login_Form.Password= "";        
+        this.dispose();         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_DangXuatActionPerformed
 
     /**
      * @param args the command line arguments

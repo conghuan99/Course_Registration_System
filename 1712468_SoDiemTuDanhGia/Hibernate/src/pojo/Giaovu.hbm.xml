@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 8, 2021 6:18:03 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 11, 2021 5:19:12 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Giaovu" table="giaovu" catalog="dangkyhocphan" optimistic-lock="version">
         <id name="maGv" type="string">
             <column name="maGV" length="5" />
             <generator class="assigned" />
         </id>
+        <property name="password" type="string">
+            <column name="password" length="20" />
+        </property>
         <property name="tenGv" type="string">
             <column name="tenGV" length="40" not-null="true" />
         </property>
@@ -20,11 +23,5 @@
         <property name="sdt" type="string">
             <column name="sdt" length="11" />
         </property>
-        <set name="quanlygiaovus" table="quanlygiaovu" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="userName" length="5" />
-            </key>
-            <one-to-many class="pojo.Quanlygiaovu" />
-        </set>
     </class>
 </hibernate-mapping>
