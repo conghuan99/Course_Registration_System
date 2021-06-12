@@ -65,6 +65,11 @@ public class giaoVu_Form extends javax.swing.JFrame {
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/qlgv.PNG"))); // NOI18N
         jButton5.setText("quản lý giáo vụ");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/qlcn.png"))); // NOI18N
         jButton6.setText("thông tin cá nhân");
@@ -162,6 +167,12 @@ public class giaoVu_Form extends javax.swing.JFrame {
         g_qlcanhan_Form.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        g_qlgv_Form g_qlgv_Form= new g_qlgv_Form();
+        g_qlgv_Form.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

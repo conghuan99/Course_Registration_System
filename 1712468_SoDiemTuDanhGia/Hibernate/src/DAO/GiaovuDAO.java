@@ -69,4 +69,45 @@ public class GiaovuDAO {
         }
         return true;
         }
+     
+     public static boolean themGiaoVu(Giaovu gv) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        if (GiaovuDAO.layThongTinGiaoVu(gv.getMaGv())!=null) {//đa ton tai giao vu nay trong db
+        return false;
+        }
+        Transaction transaction = null;
+        try {
+        transaction = session.beginTransaction();
+        session.save(gv);
+        transaction.commit();
+        } catch (HibernateException ex) {
+        //Log the exception
+        transaction.rollback();
+        System.err.println(ex);
+        } finally {
+        session.close();
+        }
+        return true;
+        }
+     
+     public static boolean xoaGiaoVu(String maGV) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Giaovu gv = GiaovuDAO.layThongTinGiaoVu(maGV);
+        if(gv==null){
+        return false;
+        }
+        Transaction transaction = null;
+        try {
+        transaction = session.beginTransaction();
+        session.delete(gv);
+        transaction.commit();
+        } catch (HibernateException ex) {
+        //Log the exception
+        transaction.rollback();
+        System.err.println(ex);
+        } finally {
+        session.close();
+        }
+        return true;
+        }
 }
